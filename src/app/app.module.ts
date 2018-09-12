@@ -8,6 +8,7 @@ import { EmployeeModule } from './employee/employee.module';
 import { AdminModule } from './admin/admin.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {IncModule} from './inc/inc.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ReactiveFormsModule,
     MdcModule,
     AppRoutingModule,
+    IncModule,
     EmployeeModule,
     AdminModule
   ],
