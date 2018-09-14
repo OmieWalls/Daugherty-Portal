@@ -1,7 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-$mdc-theme-primary: #e1bee7; // change primary color example
-$mdc-theme-secondary: #606060; // change secondary color example
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+$mdc-theme-primary: #456300;
+$mdc-theme-secondary: #606060;
 @import "~@angular-mdc/theme/material";
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif !important;
+  background: linear-gradient(to right,rgba(84,140,63,1) 100%,rgba(255,255,255,1) 100%) !important;
+}
+#searchBarForm input {
+    padding: 0 0 0 5px;
+    border-bottom: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: small;
+}

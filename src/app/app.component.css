@@ -1,0 +1,56 @@
+#daugherty-logo {
+  fill: rgba(84,140,63,1);
+  transition: all .5s cubic-bezier(0.660, -0.050, 0.045, 1.265);
+  height: 30px;
+  margin-top: 10px;
+  margin-left: -9px;
+}
+mdc-app-bar {
+  background-color: white;
+}
+mdc-app-bar-title {
+  padding: 0;
+}
+mdc-app-bar-row {
+  height: 60px;
+}
+mdc-app-bar-action-item {
+  padding: 0 .75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #606060 !important;
+  font-size: 0.75rem;
+  letter-spacing: .05em;
+  margin: 0 1.2rem;
+}
+mdc-app-bar-section:nth-of-type(2) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 60px;
+  margin-top: 10px;
+}
+mdc-text-field {
+  height: 30px;
+  margin: 0 0 2px 0;
+}
+mdc-icon {
+  color: #606060;
+  margin-left: 10px;
+}
+footer {
+  background: linear-gradient(to right,rgba(84,140,63,1) 0,rgba(181,208,132,1) 100%);
+  max-width: 1550px;
+  width: 100%;
+  min-height: 350px;
+  padding: 30px;
+  box-shadow: -2px 2px 4px rgba(0,0,0,.25) inset;
+  position: fixed;
+  bottom: 0;
+}
+mdc-card {
+  position: relative;
+  top: 60px;
+  height: 1000px;
+  width: 100%;
+}
