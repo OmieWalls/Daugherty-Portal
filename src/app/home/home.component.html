@@ -1,13 +1,67 @@
-<p>
-  <!--TODO: Header-->
-  <!--TODO: Welcome Prompt-->
-  <!--TODO: Side Panel Buttons-->
-    <!--TODO: Future Employee-->
-    <!--TODO: Existing Employee-->
-    <!--TODO: Admin-->
-  <!--TODO: Main Panel Display-->
-    <!--TODO: Future Employee Confirmation Code Input-->
-    <!--TODO: Existing Employee Login Form-->
-    <!--TODO: Admin Login Form w/ SMS Token Access through Twillio-->
-  <!--TODO: Footer-->
-</p>
+<div class="container-fluid">
+    <h2>Smart. Talented. You Belong Here.</h2>
+    <p>Our Consultants are a carefully cultivated collection of brilliant individuals that drive real business results.
+      When you build teams on a foundation of personality and aptitude, creating business leaders is a natural result.
+      Love where you work and love the people you work with. Enjoy the Daugherty Difference.</p>
+    <h3>I am a... <span class="text-primary">{{loginType}}</span></h3>
+  </div>
+  <div class="container-fluid" id="login-selector">
+    <article>
+      <button mdc-button [icon]="true" [raised]="true" (click)="setLoginType('Future Employee')">
+        <mdc-icon>person_add</mdc-icon>
+        Future Employee
+      </button>
+      <button mdc-button [icon]="true" [raised]="true" (click)="setLoginType('Existing Employee')">
+        <mdc-icon>person</mdc-icon>
+        Existing Employee
+      </button>
+      <button mdc-button [icon]="true" [raised]="true" (click)="setLoginType('HR Admin')">
+        <mdc-icon>person_outline</mdc-icon>
+        HR Admin
+      </button>
+    </article>
+    <main class="container-fluid">
+      <form [formGroup]="futureEmployeeForm" id="futureEmployeeForm" *ngIf="loginType == 'Future Employee'">
+          <mdc-text-field #futureEmployeeFirstName formControlName="firstName" label="First Name" maxlength="50" [helperText]="futureEmployeeFormHelper" required></mdc-text-field>
+          <mdc-text-field-helper-text #futureEmployeeFormHelper="mdcHelperText" validation>
+            <span *ngIf="futureEmployeeForm.controls['futureEmployeeFirstName']?.errors?.required">First name is required</span>
+          </mdc-text-field-helper-text>
+          <mdc-text-field #futureEmployeeLastName formControlName="lastName" label="Last Name" maxlength="50" [helperText]="futureEmployeeFormHelper" required></mdc-text-field>
+          <mdc-text-field-helper-text #futureEmployeeFormHelper="mdcHelperText" validation>
+            <span *ngIf="futureEmployeeForm.controls['futureEmployeeLastName']?.errors?.required">Last name is required</span>
+          </mdc-text-field-helper-text>
+          <mdc-text-field #futureEmployeeConfirmation formControlName="confirmation" label="Confirmation" required
+                          [helperText]="futureEmployeeConfirmationHelper" maxlength="10"></mdc-text-field>
+          <mdc-text-field-helper-text #futureEmployeeConfirmationHelper="mdcHelperText" validation>
+            <span *ngIf="!futureEmployeeForm.controls['futureEmployeeConfirmation']?.errors?.required">Confirmation code provided from your 'Welcome to Daugherty!' E-Mail header is required</span>
+          </mdc-text-field-helper-text>
+          <mdc-text-field #futureEmployeeLastFourOfSSN type="password" formControlName="lastFourOfSSN" label="Last Four of SSN" required
+                          [helperText]="futureEmployeeLastFourOfSSNHelper" maxlength="4"></mdc-text-field>
+          <mdc-text-field-helper-text #futureEmployeeLastFourOfSSNHelper="mdcHelperText" validation>
+            <span *ngIf="!futureEmployeeForm.controls['futureEmployeeLastFourOfSSN']?.errors?.required">Last four of your SSN is required</span>
+          </mdc-text-field-helper-text>
+      </form>
+      <form [formGroup]="existingEmployeeForm" id="existingEmployeeForm" *ngIf="loginType == 'Existing Employee' || loginType == 'HR Admin'">
+        <mdc-text-field #existingEmployeeEmail formControlName="email" type="email" label="Email" required
+                        [helperText]="existingEmployeeEmailHelper"></mdc-text-field>
+        <mdc-text-field-helper-text #existingEmployeeEmailHelper="mdcHelperText" validation>
+          <span *ngIf="!existingEmployeeForm.controls['existingEmployeeEmail']?.errors?.required">Please enter a valid e-mail address.</span>
+        </mdc-text-field-helper-text>
+        <mdc-text-field #existingEmployeePassword type="password" formControlName="password" label="Password" required
+                        [helperText]="existingEmployeePasswordHelper" maxlength="4"></mdc-text-field>
+        <mdc-text-field-helper-text #existingEmployeePasswordHelper="mdcHelperText" validation>
+          <span *ngIf="!existingEmployeeForm.controls['existingEmployeePassword']?.errors?.required">Password is required. <b><a class="text-primary" href="#">Forgot Password?</a></b></span>
+        </mdc-text-field-helper-text>
+        <mdc-text-field #existingEmployeeToken formControlName="token" label="Token Code" required
+                        [helperText]="existingEmployeeTokenHelper" maxlength="4"></mdc-text-field>
+        <mdc-text-field-helper-text #existingEmployeeTokenHelper="mdcHelperText" validation>
+          <span *ngIf="!existingEmployeeForm.controls['existingEmployeeToken']?.errors?.required">Please enter a valid token code.</span>
+        </mdc-text-field-helper-text>
+      </form>
+      <div id="form-actions" *ngIf="loginType">
+        <button mdc-button (click)="futureEmployeeForm.reset()">Reset</button>
+        <button mdc-button [unelevated]="true" (click)="submitForm()">Submit</button>
+      </div>
+    </main>
+  </div>
+

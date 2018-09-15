@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
-$mdc-theme-primary: #456300;
+$mdc-theme-primary: #548C3F;
 $mdc-theme-secondary: #606060;
 @import "~@angular-mdc/theme/material";
 body {
@@ -13,4 +13,7 @@ body {
     border-bottom: none;
     font-family: 'Open Sans', sans-serif;
     font-size: small;
+}
+.text-primary {
+  color: #548C3F !important;
 }

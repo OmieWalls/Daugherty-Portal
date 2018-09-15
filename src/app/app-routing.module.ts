@@ -27,11 +27,14 @@ import { AdminTopicEditComponent } from './admin/admin-resources/admin-topic-det
 import { AdminResourcesComponent } from './admin/admin-resources/admin-resources.component';
 import { AdminResourcesNewComponent } from './admin/admin-resources/admin-resources-new/admin-resources-new.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {DocumentsComponent} from './candidate/documents/documents.component';
+import {DocumentDetailComponent} from './candidate/document-detail/document-detail.component';
+import {CandidateDashboardComponent} from './candidate/candidate-dashboard/candidate-dashboard.component';
 
 const routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
-  {path: '404', component: PageNotFoundComponent},
-  {path: '**', redirectTo: '/404'},
+  {path: 'documents', component: DocumentsComponent, pathMatch: 'full'},
+  {path: 'documents/:documentId', component: DocumentDetailComponent, pathMatch: 'full'},
   // Employee Panel
   {path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
   {path: 'changes', component: ChangesComponent, pathMatch: 'full'},
@@ -48,6 +51,7 @@ const routes = [
   {path: 'admin/queue', component: AdminQueueComponent, pathMatch: 'full'},
   {path: 'admin/changes', component: AdminChangesComponent, pathMatch: 'full'},
   {path: 'admin/profile', component: AdminProfileComponent, pathMatch: 'full'},
+  {path: 'admin/profile/edit', component: AdminProfileComponent, pathMatch: 'full'},
   {path: 'admin/messages', component: AdminMessagesComponent, pathMatch: 'full'},
   {path: 'admin/messages/:employeeId', component: AdminEmployeeMessagesComponent, pathMatch: 'full'},
   {path: 'admin/employees', component: AdminEmployeesComponent, pathMatch: 'full'},
@@ -58,6 +62,12 @@ const routes = [
   {path: 'admin/resources/new', component: AdminResourcesNewComponent, pathMatch: 'full'},
   {path: 'admin/resources/:topic', component: AdminTopicDetailComponent, pathMatch: 'full'},
   {path: 'admin/resources/:topic/edit', component: AdminTopicEditComponent, pathMatch: 'full'},
+  // Candidate Panel
+  {path: 'candidate/dashboard', component: CandidateDashboardComponent, pathMatch: 'full'},
+
+  // 404 - Page Not Found
+  {path: '404', component: PageNotFoundComponent},
+  {path: '**', redirectTo: '/404'},
 ];
 
 @NgModule({

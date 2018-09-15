@@ -8,6 +8,7 @@ import { EmployeeModule } from './employee/employee.module';
 import { AdminModule } from './admin/admin.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {CandidateModule} from './candidate/candidate.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MdcModule,
     AppRoutingModule,
     EmployeeModule,
-    AdminModule
+    AdminModule,
+    CandidateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
