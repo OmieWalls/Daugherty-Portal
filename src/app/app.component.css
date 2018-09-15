@@ -8,11 +8,9 @@
 mdc-app-bar {
   background-color: white;
 }
-mdc-app-bar-title {
-  padding: 0;
-}
 mdc-app-bar-row {
   height: 60px;
+  padding-left: 11px;
 }
 mdc-app-bar-action-item {
   padding: 0 .75em;
@@ -40,12 +38,10 @@ mdc-icon {
 }
 footer {
   background: linear-gradient(to right,rgba(84,140,63,1) 0,rgba(181,208,132,1) 100%);
-  max-width: 1550px;
   width: 100%;
   min-height: 350px;
-  padding: 30px;
   box-shadow: -2px 2px 4px rgba(0,0,0,.25) inset;
-  position: fixed;
+  position: relative;
   bottom: 0;
 }
 mdc-card {
@@ -53,4 +49,5 @@ mdc-card {
   top: 60px;
   height: 1000px;
   width: 100%;
+  right: 0;
 }
